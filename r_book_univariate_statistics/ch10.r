@@ -1,0 +1,6 @@
+x <- rexp(1000*50,rate=5)
+xm <- matrix(x,nrow=1000,ncol=50)
+z <- apply(xm,1,mean)
+hist(z,xlim=c(0.1,0.3),ylim=c(0,15),prob=TRUE,ylab="")
+par(new=TRUE)
+plot(function(x)dnorm(x,mean=mean(z),sd=sd(z)),xlim=c(0.1,0.3),ylim=c(0,15),xlab="",ylab="",lwd=2)
